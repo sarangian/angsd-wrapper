@@ -45,9 +45,10 @@ case "${setup_routine}" in
         cd "${ROOT}"
         #   Install HTSLIB
         cd "${ROOT}"
-        git clone https://github.com/samtools/htslib.git
-        cd htslib
-        git reset --hard bb03b0287bc587c3cbdc399f49f0498eef86b44a
+        wget https://github.com/samtools/htslib/releases/download/1.16/htslib-1.16.tar.bz2
+        tar -xjf htslib-1.16.tar.bz2
+        mv htslib-1.16 htslib
+	cd htslib
         make
         make prefix=`pwd` install
         HTSLIB_DIR=`pwd`
